@@ -9,23 +9,40 @@ public class Aufgabe_3
     {
         int[] array = new int[100];
 
-        for(int i = 0; i < array.length; i++)
+        for (int i = 0; i < array.length; i++)
         {
             Random rnd = new Random();
             array[i] = rnd.nextInt(1000);
         }
 
-        while(true)
+        while (true)
         {
-            int index = Integer.parseInt(JOptionPane.showInputDialog("Gimme Index"));
+            String choosenIndex = JOptionPane.showInputDialog("Gimme Index");
+            if (!isNumeric(choosenIndex))
+            {
+                break;
+            }
 
+            int index = Integer.parseInt(choosenIndex);
             int result = JOptionPane.showConfirmDialog(null, "Value is: " + array[index], "Bestätige", JOptionPane.YES_NO_OPTION);
 
-            if(result == JOptionPane.YES_OPTION)
+            if (result == JOptionPane.YES_OPTION)
             {
                 int newValue = Integer.parseInt(JOptionPane.showInputDialog("Gimme NewValue"));
                 array[index] = newValue;
             }
         }
+    }
+
+    private static Boolean isNumeric(String s)
+    {
+        try
+        {
+            int i = Integer.parseInt(s);
+        } catch (NumberFormatException | NullPointerException ex)
+        {
+            return false;
+        }
+        return true;
     }
 }

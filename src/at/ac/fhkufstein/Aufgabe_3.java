@@ -39,7 +39,7 @@ public class Aufgabe_3
         try
         {
             int i = Integer.parseInt(s);
-        } catch (NumberFormatException | NullPointerException ex)
+        } catch (NumberFormatException ex)
         {
             return false;
         }

@@ -38,7 +38,7 @@ public class Aufgabe_3
     {
         try
         {
-            int i = Integer.parseInt(s);
+            Integer.parseInt(s);
         } catch (NumberFormatException ex)
         {
             return false;
